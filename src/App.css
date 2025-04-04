@@ -21,6 +21,7 @@ h1 {
   height: auto;
   border-radius: 5%;
   box-shadow: 5px 5px 2px rgb(186, 186, 186);
+  border: black solid 3px;
 }
 
 .store-button {
@@ -33,7 +34,7 @@ h1 {
   color: #fff;
   font-weight: bold;
   font-size: large;
-  border: none;
+  border: black solid 1px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -116,6 +117,9 @@ h1 {
   border: #fff solid 1px;
   margin: 10px;
   font-weight: bold;
+}
+.modal-content button:hover {
+  background-color: #002f61;
 }
 .modal-content input {
   background-color: aliceblue;
