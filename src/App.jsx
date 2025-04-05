@@ -39,8 +39,8 @@ function App() {
     28: { length: 1.5, width: 1, volumeConstant: 0.15 },
   };
 
-  const length = 6;
-  const width = 1.3;
+  // const length = 6;
+  // const width = 1.3;
   const [result, setResult] = useState(null);
 
   // Fonction de calcul
