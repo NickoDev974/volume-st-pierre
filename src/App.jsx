@@ -9,40 +9,49 @@ function App() {
   const [selectedBassin, setSelectedBassin] = useState(null);
 
   const bassinInfos = {
-    1: { length: 6, width: 1.3 },
-    2: { length: 5, width: 1.5 },
-    3: { length: 4, width: 1.2 },
-    4: { length: 3.5, width: 1.3 },
-    5: { length: 6.2, width: 1.4 },
-    6: { length: 4.5, width: 1.1 },
-    7: { length: 3.8, width: 1.25 },
-    8: { length: 5.5, width: 1.6 },
-    9: { length: 4.2, width: 1.35 },
-    10: { length: 3.9, width: 1.2 },
-    11: { length: 4.7, width: 1.4 },
-    12: { length: 5.1, width: 1.5 },
-    13: { length: 6.3, width: 1.7 },
-    14: { length: 4.6, width: 1.3 },
-    15: { length: 3.3, width: 1.2 },
-    16: { length: 5.4, width: 1.6 },
-    17: { length: 4.8, width: 1.35 },
-    18: { length: 6.1, width: 1.45 },
-    19: { length: 5.3, width: 1.25 },
-    20: { length: 3.6, width: 1.1 },
-    21: { length: 5.8, width: 1.5 },
-    22: { length: 4.1, width: 1.4 },
-    23: { length: 3.7, width: 1.3 },
+    1: { length: 3, width: 1.2, volumeConstant: 4.5 },
+    2: { length: 4.5, width: 1.2, volumeConstant: 1 },
+    3: { length: 2.5, width: 1.2, volumeConstant: 1 },
+    4: { length: 2.5, width: 2, volumeConstant: 1 },
+    5: { length: 2.5, width: 2, volumeConstant: 1 },
+    6: { length: 2.5, width: 2, volumeConstant: 1 },
+    7: { length: 5, width: 2, volumeConstant: 1 },
+    8: { length: 5.5, width: 1.6, volumeConstant: 0 },
+    9: { length: 4, width: 1.3, volumeConstant: 1.5 },
+    10: { length: 4, width: 1.3, volumeConstant: 1.5 },
+    11: { length: 4, width: 1.3, volumeConstant: 1.5 },
+    12: { length: 4, width: 1.3, volumeConstant: 1 },
+    13: { length: 3, width: 1.7, volumeConstant: 1 },
+    14: { length: 3, width: 1.7, volumeConstant: 1 },
+    15: { length: 3, width: 1.7, volumeConstant: 1 },
+    16: { length: 3, width: 1.7, volumeConstant: 1.8 },
+    17: { length: 8, width: 3, volumeConstant: 4 },
+    18: { length: 2, width: 1.3, volumeConstant: 0 },
+    19: { length: 2, width: 1.3, volumeConstant: 0 },
+    20: { length: 2, width: 1.3, volumeConstant: 0 },
+    21: { length: 5, width: 4, volumeConstant: 0 },
+    22: { length: 5, width: 4, volumeConstant: 0 },
+    23: { length: 1.5, width: 1, volumeConstant: 0.15 },
+    24: { length: 1.5, width: 1, volumeConstant: 0.15 },
+    25: { length: 1.5, width: 1, volumeConstant: 0.15 },
+    26: { length: 1.5, width: 1, volumeConstant: 0.15 },
+    27: { length: 1.5, width: 1, volumeConstant: 0.15 },
+    28: { length: 1.5, width: 1, volumeConstant: 0.15 },
   };
 
   const length = 6;
   const width = 1.3;
   const [result, setResult] = useState(null);
 
+  // Fonction de calcul
   const handleCalculate = () => {
     const parsedHeight = parseFloat(height);
     if (!isNaN(parsedHeight)) {
       if (selectedBassin) {
-        setResult(selectedBassin.length * selectedBassin.width * parsedHeight);
+        setResult(
+          selectedBassin.length * selectedBassin.width * parsedHeight +
+            (selectedBassin.volumeConstant || 0)
+        );
       }
     }
   };
@@ -54,7 +63,7 @@ function App() {
         <img src={planMagasin} alt="Plan du magasin" className="plan-magasin" />
 
         <div className="buttons-grid">
-          {[...Array(23)].map((_, index) => (
+          {[...Array(28)].map((_, index) => (
             <button
               key={index + 1}
               className="store-button"
