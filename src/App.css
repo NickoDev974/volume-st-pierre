@@ -3,13 +3,27 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgb(95, 95, 95);
+
+  /* background-color: rgb(3, 3, 200);
+  background-image: url("/src/assets/logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat; */
+}
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 h1 {
-  font-size: large;
+  font-size: 1.5rem;
   font-weight: bolder;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  /* text-shadow: 5px 5px 3px #fff; */
+  text-shadow: 5px 5px 3px #ffffff;
   color: black;
 }
 
@@ -25,26 +39,73 @@ h1 {
 }
 
 .store-button {
-  width: 80px;
-  height: 50px;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #007bff;
-  box-shadow: #fff 5px 5px 2px;
-  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Exo 2", sans-serif;
   font-weight: bold;
-  font-size: large;
-  border: black solid 1px;
+  font-size: 18px;
+
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #00c7ec;
+  border: 1px solid #00c7ec;
   border-radius: 5px;
+
+  line-height: 3em;
+  padding: 0 2em;
+
+  box-shadow: 0 0 0 0 transparent;
+  background-color: rgba(12, 12, 133, 0.507);
   cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.2s ease-in;
 }
 
 .store-button:hover {
-  background-color: #0056b3;
+  color: white;
+  background-color: #00c7ec;
+  box-shadow: 0 0 30px 0 rgba(0, 199, 236, 0.5);
+  transition: all 0.2s ease-out;
+}
+
+.store-button:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.store-button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+
+  opacity: 0;
+  background: white;
+  box-shadow: 0 0 15px 3px white;
+  transform: skewX(-20deg);
+}
+
+.store-button:hover::before {
+  animation: shine 0.5s 0s linear;
+}
+
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
+  }
 }
 
 .buttons-grid {
@@ -63,6 +124,12 @@ h1 {
 }
 
 @media (min-width: 1024px) {
+  #root {
+    background-image: url("/src/assets/Fd-ecran-UA.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   h1 {
     font-size: 3rem;
   }
@@ -102,17 +169,72 @@ h1 {
 }
 
 .modal-content {
-  background: rgb(244, 231, 207); /* Bleu */
+  background: rgb(244, 231, 207);
   padding: 20px;
   border-radius: 5%;
   border: solid 2px black;
   text-align: center;
   width: 300px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  color: black; /* Blanc pour un bon contraste */
+  color: black;
   font-weight: bold;
 }
 .modal-content button {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Exo 2", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px;
+
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #00c7ec;
+  border: 1px solid #00c7ec;
+  border-radius: 5px;
+
+  line-height: 3em;
+  padding: 0 2em;
+
+  box-shadow: 0 0 0 0 transparent;
+  background-color: rgba(12, 12, 133, 0.78);
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.modal-content button:hover {
+  color: white;
+  background-color: #00c7ec;
+  box-shadow: 0 0 30px 0 rgba(0, 199, 236, 0.5);
+  transition: all 0.2s ease-out;
+}
+
+.modal-content button:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.modal-content button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+
+  opacity: 0;
+  background: white;
+  box-shadow: 0 0 15px 3px white;
+  transform: skewX(-20deg);
+}
+
+.modal-content button:hover::before {
+  animation: shine 0.5s 0s linear;
+}
+
+/* .modal-content button {
   background-color: #0056b3;
   border: #fff solid 1px;
   margin: 10px;
@@ -120,7 +242,7 @@ h1 {
 }
 .modal-content button:hover {
   background-color: #002f61;
-}
+} */
 .modal-content input {
   background-color: aliceblue;
   color: black;
